@@ -1,4 +1,4 @@
-import { MouseEvent } from 'react';
+import {MouseEvent} from 'react';
 
 interface KSAttrs {
     key: string;
@@ -19,6 +19,7 @@ const megaWrap = (fn: PureFn) => (arg: Attributes) => fn(arg);
 
 const PurePhoto = (attrs: Attributes) => <img {...attrs} />;
 export const Photo = megaWrap(PurePhoto);
+
 
 /**
  * I will refactor this later
