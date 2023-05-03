@@ -1,36 +1,21 @@
-import {MappedText} from '@shared/components/MappedText';
-import {ClickPhoto, Photo} from '@shared/components/Photo';
+import { ClickPhoto, Photo } from '@shared/components/Photo';
 
+import { useState } from 'react';
+
+import { TextMap } from '../shared/components/MappedText';
 import tommy_portret from '../src/assets/tommy_portret.png';
 
 const YEARS = [2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016];
 
-type ClickFn = (data: any) => void;
-const clickHandler: ClickFn = (data: unknown) => console.log(data);
-
-// TextMap with Click
-// Temporary onClick example
-const TextMap = (textArr: string[] | number[]) => (onClick: ClickFn) =>
-    textArr.map((text, index) =>
-        MappedText(
-            text,
-            `${text}-${index}`
-        )({
-            onClick,
-        })
-    );
-
-const withClick = (
-    fn: (onClick: ClickFn) => JSX.Element | JSX.Element[],
-    clickHandler: ClickFn
-) => fn(clickHandler);
-
-const YearSelection = () => <ul>{withClick(TextMap(YEARS), clickHandler)}</ul>
+// const clickHandler = (data: unknown) => console.log(data);
 
 export const VerbonApp = () => {
+    const [year, setYear] = useState(2023);
+    const updateYear = () => (year: number) => setYear(year);
     return (
         <div>
             <h1>Verbon</h1>
+            <h2>{year}</h2>
             {Photo({
                 src: tommy_portret,
                 ...{
@@ -47,7 +32,7 @@ export const VerbonApp = () => {
                     id: 'Tommy-2',
                 },
             })}
-            <YearSelection/>
+            <TextMap data={YEARS} onClick={updateYear()} />
         </div>
     );
 };

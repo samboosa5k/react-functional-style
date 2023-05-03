@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91dc7e33-b385-4d11-ab01-9377bc69ec23" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+    <list default="true" id="91dc7e33-b385-4d11-ab01-9377bc69ec23" name="Changes" comment="[naming] Correcting anonymous names of functions where necessary">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/VerbonApp.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/VerbonApp.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/components/Photo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/Photo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/components/MappedText.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/MappedText.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,11 +78,30 @@
       <workItem from="1682960116877" duration="8704000" />
       <workItem from="1682973927019" duration="1983000" />
       <workItem from="1683137634880" duration="4723000" />
-      <workItem from="1683148233596" duration="829000" />
+      <workItem from="1683148233596" duration="5485000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
+    <MESSAGE value="[naming] Correcting anonymous names of functions where necessary" />
+    <option name="LAST_COMMIT_MESSAGE" value="[naming] Correcting anonymous names of functions where necessary" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>
