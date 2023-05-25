@@ -1,5 +1,7 @@
-import {FC} from "react";
-import ArticleList from './NewsListData.json'
+import { FC } from 'react';
+
+import ArticleList from './NewsListData.json';
+
 // Data structure
 const articleInsertData = {
     newsID: 1,
@@ -20,26 +22,29 @@ const articleInsertData = {
         newsCatMedia: false,
     },
     imageUrl: 'http://www.host.com/path-to/image.jpg',
-}
+};
 
 type ArticleData = Array<typeof articleInsertData>;
 const fetchData = JSON.stringify(ArticleList) as string;
 const articleData = JSON.parse(fetchData).data as ArticleData;
 
 const NewsArticleMap = (): FC<ArticleData> => {
-    return (props: ArticleData) =>
+    return (props: ArticleData) => (
         <ul id="news-list">
             {/*    */}
             {props.map((item, index) => ArticleInsert([item, index]))}
         </ul>
+    );
 };
+
+NewsArticleMap.displayName = 'NewsArticleMap';
 
 type ArticleInsertProps = [typeof articleInsertData, number];
 const ArticleInsert: FC<ArticleInsertProps> = ([props, index]) => {
     return (
         <li key={`news-item-${index}`} className="news-item">
             <div className="news-item__image">
-                <img src={props.imageUrl} alt={props.newsTitle}/>
+                <img src={props.imageUrl} alt={props.newsTitle} />
             </div>
             <div className="news-item__content">
                 <div className="news-item__content__title">
@@ -47,7 +52,9 @@ const ArticleInsert: FC<ArticleInsertProps> = ([props, index]) => {
                 </div>
                 <div className="news-item__content__meta">
                     <div className="news-item__content__meta__category">
-                        <a href={props.host + props.path}>{props.category.newsCatName}</a>
+                        <a href={props.host + props.path}>
+                            {props.category.newsCatName}
+                        </a>
                     </div>
                     <div className="news-item__content__meta__date">
                         {props.newsDate}
@@ -55,7 +62,9 @@ const ArticleInsert: FC<ArticleInsertProps> = ([props, index]) => {
                 </div>
             </div>
         </li>
-    )
-}
+    );
+};
+
+ArticleInsert.displayName = 'ArticleInsert';
 
 export const NewsList = NewsArticleMap()(articleData);
