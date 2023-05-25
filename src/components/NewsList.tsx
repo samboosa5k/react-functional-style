@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import {memo} from 'react';
 
 import ArticleList from './NewsListData.json';
 
@@ -28,23 +28,21 @@ type ArticleData = Array<typeof articleInsertData>;
 const fetchData = JSON.stringify(ArticleList) as string;
 const articleData = JSON.parse(fetchData).data as ArticleData;
 
-const NewsArticleMap = (): FC<ArticleData> => {
-    return (props: ArticleData) => (
-        <ul id="news-list">
-            {/*    */}
-            {props.map((item, index) => ArticleInsert([item, index]))}
-        </ul>
-    );
-};
+const NewsArticleMap = memo(({data}: { data: ArticleData }) => (
+    <ul id="news-list">
+        {/*    */}
+        {data.map((item, index) => articleInsert([item, index]))}
+    </ul>
+));
 
 NewsArticleMap.displayName = 'NewsArticleMap';
 
 type ArticleInsertProps = [typeof articleInsertData, number];
-const ArticleInsert: FC<ArticleInsertProps> = ([props, index]) => {
+const articleInsert = ([props, index]: ArticleInsertProps): JSX.Element => {
     return (
         <li key={`news-item-${index}`} className="news-item">
             <div className="news-item__image">
-                <img src={props.imageUrl} alt={props.newsTitle} />
+                <img src={props.imageUrl} alt={props.newsTitle}/>
             </div>
             <div className="news-item__content">
                 <div className="news-item__content__title">
@@ -64,7 +62,6 @@ const ArticleInsert: FC<ArticleInsertProps> = ([props, index]) => {
         </li>
     );
 };
+export const NewsList = () => <>{<NewsArticleMap data={articleData}/>}</>;
 
-ArticleInsert.displayName = 'ArticleInsert';
-
-export const NewsList = NewsArticleMap()(articleData);
+NewsList.displayName = 'NewsList';
