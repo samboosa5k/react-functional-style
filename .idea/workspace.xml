@@ -5,15 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91dc7e33-b385-4d11-ab01-9377bc69ec23" name="Changes" comment="[naming] Correcting anonymous names of functions where necessary">
+      <change afterPath="$PROJECT_DIR$/src/components/organisms/NewsList.stories.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/organisms/NewsList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/VerbonApp.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/VerbonApp.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/components/MappedText.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/MappedText.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="ElmWorkspace">
+    <elmProjects />
+    <settings elmCompilerPath="$USER_HOME$/.nvm/versions/node/v19.8.1/bin/elm" elmFormatPath="$USER_HOME$/.nvm/versions/node/v19.8.1/bin/elm-format" elmTestPath="$USER_HOME$/.nvm/versions/node/v19.8.1/bin/elm-test" isElmFormatOnSaveEnabled="false" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -38,7 +44,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "project/setup-fork",
+    "git-widget-placeholder": "trunk",
     "last_opened_file_path": "/home/jasper/_WEB/react-functional-style",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -46,16 +52,19 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "prettierjs.PrettierConfiguration.Package": "/home/jasper/_WEB/react-functional-style/node_modules/prettier",
-    "settings.editor.selected.configurable": "preferences.sourceCode.TypeScript",
+    "settings.editor.selected.configurable": "preferences.sourceCode.Sass",
     "ts.external.directory.path": "/home/jasper/_WEB/react-functional-style/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/apps" />
+      <recent name="$PROJECT_DIR$/src/components" />
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/apps" />
     </key>
@@ -79,11 +88,36 @@
       <workItem from="1682973927019" duration="1983000" />
       <workItem from="1683137634880" duration="4723000" />
       <workItem from="1683148233596" duration="5485000" />
+      <workItem from="1683225814609" duration="437000" />
+      <workItem from="1685039100770" duration="4515000" />
+      <workItem from="1685142827484" duration="599000" />
+      <workItem from="1685200241009" duration="13000" />
     </task>
+    <task id="LOCAL-00001" summary="[naming] Correcting anonymous names of functions where necessary">
+      <created>1685042963099</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1685042963099</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+    <option name="additionalRoots">
+      <list>
+        <option value="$PROJECT_DIR$/../react-styuled-gsap/src/theme" />
+        <option value="$PROJECT_DIR$/../react-styuled-gsap/src/utils" />
+        <option value="$PROJECT_DIR$/../react-styuled-gsap/src/types" />
+        <option value="$PROJECT_DIR$/../react-styuled-gsap/src/pages" />
+        <option value="$PROJECT_DIR$/../react-styuled-gsap/src/modules" />
+        <option value="$PROJECT_DIR$/../react-styuled-gsap/src/layout" />
+        <option value="$PROJECT_DIR$/../react-styuled-gsap/src/HOC" />
+        <option value="$PROJECT_DIR$/../react-styuled-gsap/src/components" />
+        <option value="$PROJECT_DIR$/../react-styuled-gsap/src" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -103,5 +137,9 @@
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
