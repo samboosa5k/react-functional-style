@@ -1,4 +1,5 @@
-import {ComponentMeta, Story} from '@storybook/react';
+import { ComponentMeta, Story } from '@storybook/react';
+
 import NewsList from './NewsList';
 
 export default {
@@ -8,5 +9,4 @@ export default {
 
 export const Default: Story = () => <NewsList.Parent />;
 export const Primary: Story = () => <NewsList.Parent />;
-Primary.args = {
-}
+Primary.args = {};
