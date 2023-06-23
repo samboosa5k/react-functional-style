@@ -1,9 +1,9 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 
-import styled, {css, FlattenSimpleInterpolation} from 'styled-components';
+import styled, { css, FlattenSimpleInterpolation } from 'styled-components';
 
-import {Block, StyledBlockProps} from '../molecules';
-import {Container} from "./NewsItem.style";
+import { Block, StyledBlockProps } from '../atoms';
+import { Container } from './NewsItem.style';
 
 export interface StyledContainerProps {
     templateAreas: FlattenSimpleInterpolation;
@@ -11,16 +11,14 @@ export interface StyledContainerProps {
     children?: ReactNode;
 }
 
-export const NewsItem = ({
-    templateAreas,
-}: StyledContainerProps | any): JSX.Element => {
+export const NewsItem = ({ templateAreas }: StyledBlockProps | any): JSX.Element => {
     return (
         <NewsItem.Container templateAreas={templateAreas}>
             <NewsItem.Tag1>Tag1</NewsItem.Tag1>
             <NewsItem.Tag2>Tag2</NewsItem.Tag2>
             <NewsItem.Content>
                 {'Here is some content, and some random text which I need to fill this area.'.repeat(
-                    10
+                    10,
                 )}
                 <NewsItem.Info>INFO</NewsItem.Info>
             </NewsItem.Content>
@@ -34,14 +32,14 @@ NewsItem.Container = ({ templateAreas, children }: StyledContainerProps) => (
 
 NewsItem.Thumbnail = styled(Block)<StyledBlockProps>(
     (props) => css`
-        background: ${props?.stretch ? 'red' : 'blue'};
-    `
+      background: ${props?.stretch ? 'red' : 'blue'};
+    `,
 );
 NewsItem.Tag1 = (props: Partial<StyledContainerProps>) => (
     <Block
         {...{
             gridArea: 'tag1',
-            className: 'item__tag item__tag--1',
+            className: props?.className || 'item__tag item__tag--1',
             ...props,
         }}
     />
@@ -64,7 +62,7 @@ NewsItem.Info = (props: Partial<StyledContainerProps>) => (
         }}
     />
 );
-NewsItem.Content = (props: Partial<StyledContainerProps>) => (
+NewsItem.Content = styled((props: Partial<StyledContainerProps>) => (
     <Block
         {...{
             gridArea: 'content',
@@ -73,6 +71,7 @@ NewsItem.Content = (props: Partial<StyledContainerProps>) => (
             ...props,
         }}
     />
-);
-
+))`
+  border: 1px solid red;
+`;
 export default NewsItem;
