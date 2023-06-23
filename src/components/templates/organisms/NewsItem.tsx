@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
+import LoremIpsum from 'react-lorem-ipsum';
 
-import styled, { css, FlattenSimpleInterpolation } from 'styled-components';
+import styled, { FlattenSimpleInterpolation } from 'styled-components';
 
 import { Block, StyledBlockProps } from '../atoms';
 import { Container } from './NewsItem.style';
@@ -11,67 +12,111 @@ export interface StyledContainerProps {
     children?: ReactNode;
 }
 
-export const NewsItem = ({ templateAreas }: StyledBlockProps | any): JSX.Element => {
+interface StyledNewsItemProps extends Omit<StyledContainerProps, 'children'> {
+    children?: ReactNode;
+}
+
+export const NewsItem = ({
+    templateAreas,
+    className,
+    children,
+}: StyledNewsItemProps | any): JSX.Element => {
     return (
-        <NewsItem.Container templateAreas={templateAreas}>
-            <NewsItem.Tag1>Tag1</NewsItem.Tag1>
-            <NewsItem.Tag2>Tag2</NewsItem.Tag2>
-            <NewsItem.Content>
-                {'Here is some content, and some random text which I need to fill this area.'.repeat(
-                    10,
-                )}
-                <NewsItem.Info>INFO</NewsItem.Info>
-            </NewsItem.Content>
+        <NewsItem.Container templateAreas={templateAreas} className={className}>
+            <>
+                <NewsItem.Tag1 className="item__tag">Tag1</NewsItem.Tag1>
+                <NewsItem.Tag2 className="item__tag">Tag2</NewsItem.Tag2>
+                <NewsItem.Content className="item__content">
+                    <LoremIpsum p={1} />
+
+                    <NewsItem.Info className="item__info">INFO</NewsItem.Info>
+                </NewsItem.Content>
+            </>
+            {children}
         </NewsItem.Container>
     );
 };
 
-NewsItem.Container = ({ templateAreas, children }: StyledContainerProps) => (
-    <Container templateAreas={templateAreas}>{children}</Container>
+export const MediaItem = ({
+    templateAreas,
+    className,
+}: StyledNewsItemProps) => (
+    <NewsItem {...{ templateAreas, className }}>
+        <NewsItem.Thumbnail className="item__thumbnail">
+            <img
+                src="https://via.placeholder.com/300x200"
+                alt="thumbnail"
+                width="100%"
+                height="100%"
+            />
+        </NewsItem.Thumbnail>
+    </NewsItem>
 );
 
-NewsItem.Thumbnail = styled(Block)<StyledBlockProps>(
-    (props) => css`
-      background: ${props?.stretch ? 'red' : 'blue'};
-    `,
+NewsItem.Container = ({
+    templateAreas,
+    className,
+    children,
+}: StyledContainerProps) => (
+    <Container {...{ templateAreas, className }}>{children}</Container>
 );
-NewsItem.Tag1 = (props: Partial<StyledContainerProps>) => (
+
+NewsItem.Tag1 = (props: Partial<StyledBlockProps>) => (
     <Block
         {...{
             gridArea: 'tag1',
-            className: props?.className || 'item__tag item__tag--1',
             ...props,
         }}
     />
 );
-NewsItem.Tag2 = (props: Partial<StyledContainerProps>) => (
+NewsItem.Tag2 = (props: Partial<StyledBlockProps>) => (
     <Block
         {...{
             gridArea: 'tag2',
-            className: 'item__tag item__tag--2',
             ...props,
         }}
     />
 );
-NewsItem.Info = (props: Partial<StyledContainerProps>) => (
+NewsItem.Info = (props: Partial<StyledBlockProps>) => (
     <Block
         {...{
             gridArea: 'info',
-            className: 'item__info item__info',
             ...props,
         }}
     />
 );
-NewsItem.Content = styled((props: Partial<StyledContainerProps>) => (
+NewsItem.Content = styled((props: Partial<StyledBlockProps>) => (
     <Block
         {...{
             gridArea: 'content',
-            className: 'item__content item__content',
             stretch: true,
             ...props,
         }}
     />
 ))`
-  border: 1px solid red;
+    p {
+        display: inherit;
+    }
+`;
+NewsItem.Thumbnail = styled((props: Partial<StyledBlockProps>) => (
+    <Block
+        {...{
+            gridArea: 'thumbnail',
+            ...props,
+        }}
+    />
+))`
+    position: relative;
+    display: flex;
+    height: auto;
+    object-fit: scale-down;
+    overflow: hidden;
+
+    img {
+        top: 50%;
+        width: 100%;
+        height: auto;
+        margin: auto;
+    }
 `;
 export default NewsItem;

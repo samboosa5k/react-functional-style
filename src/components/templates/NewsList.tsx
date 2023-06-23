@@ -1,21 +1,30 @@
-import { Layout, NewsItem } from './organisms';
+import { Layout, MediaItem, NewsItem } from './organisms';
 
 const NewsList = () => {
     return (
         <>
-            <NewsItem templateAreas={Layout.articleDesktop} />
+            <NewsItem
+                templateAreas={Layout.articleDesktop}
+                className="news-item"
+            />
             <hr />
             <br />
-            <NewsItem templateAreas={Layout.articleDesktopCompact} />
+            <NewsItem
+                templateAreas={Layout.articleDesktopCompact}
+                className="news-item"
+            />
             <hr />
             <br />
-            <NewsItem templateAreas={Layout.articleMobile} />
+            <MediaItem
+                templateAreas={Layout.articleVideoDesktop}
+                className="news-item news-item__media"
+            />
             <hr />
             <br />
-            <NewsItem templateAreas={Layout.promoDesktop} />
-            <hr />
-            <br />
-            <NewsItem templateAreas={Layout.promoMobile} />
+            <NewsItem
+                templateAreas={Layout.promoMobile}
+                className="news-item"
+            />
         </>
     );
 };

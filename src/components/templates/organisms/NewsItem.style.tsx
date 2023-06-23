@@ -13,64 +13,35 @@ export const Container = styled.div<StyledContainerProps>(
         return css`
             position: relative;
             height: auto;
-            display: grid;
-            grid-auto-rows: minmax(0, 1fr);
-            grid-auto-flow: dense;
-            grid-row-gap: 0.25em;
-            grid-column-gap: 0.25em;
             box-sizing: border-box;
-
-            .item__tag {
-                &--1 {
-                    background-color: #a6a6c0;
-                }
-
-                &--2 {
-                    background-color: #a6c0a6;
-                }
-            }
-
-            .item__content,
-            .item__info {
-                display: inline;
-            }
-
-            .item__info {
-                float: right;
-            }
-
-            .item__thumbnail {
-                position: relative;
-                display: flex;
-                height: auto;
-                object-fit: scale-down;
-                overflow: hidden;
-
-                img {
-                    top: 50%;
-                    width: 100%;
-                    height: auto;
-                    margin: auto;
-                }
-            }
+            font: 1rem/1.5 'Noto Sans KR', sans-serif;
+            color: #333;
+            background-color: #fff;
+            border: 1px solid #c0a680;
+            border-radius: 0.5rem;
+            box-shadow: 0 0 0.5rem 0.25rem rgba(0, 0, 0, 0.1);
 
             ${templateAreas};
         `;
     }
 );
+const gridBase = `
+    display: grid;
+    grid-auto-rows: minmax(0, 1fr);
+    grid-auto-flow: dense;
+    grid-row-gap: 0.25em;
+    grid-column-gap: 0.25em`;
 
 export const Layout: { [key: string]: FlattenSimpleInterpolation } = {};
 Layout.articleMobile = css`
-    grid-template-areas:
-        'tag1 content content content'
-        'tag2 content content content';
-    grid-template-columns: minmax(8%, 1fr) minmax(8%, 1fr) minmax(0, 100%) minmax(
-            0,
-            100%
-        );
+  ${gridBase};
+'tag1 content content content' 'tag2 content content content';
+  grid-template-columns: minmax(8%, 1fr) minmax(8%, 1fr) minmax(0, 100%) minmax(0,
+  100%);
 `;
 
 Layout.articleDesktop = css`
+    ${gridBase};
     grid-template-areas: 'tag1 tag2 content content';
     grid-template-columns: minmax(8%, 1fr) minmax(8%, 1fr) minmax(0, 100%) minmax(
             0,
@@ -78,24 +49,11 @@ Layout.articleDesktop = css`
         );
 `;
 Layout.articleDesktopCompact = css`
-    display: flow-root;
-
-    .item__thumbnail {
-        display: inline-flex;
-        max-width: 8%;
-        height: auto;
-    }
-
-    .item__tag {
-        display: inline;
-    }
-
-    .item__content {
-        display: inline;
-    }
+    display: inline;
 `;
 
 Layout.articleVideoDesktop = css`
+    ${gridBase};
     grid-template-areas:
         'thumbnail tag1 content content'
         'thumbnail tag2 content content';
@@ -106,6 +64,7 @@ Layout.articleVideoDesktop = css`
 `;
 
 Layout.articleVideoMobile = css`
+    ${gridBase};
     grid-template-areas:
         'thumbnail content content tag1'
         'thumbnail content content tag2';
@@ -116,6 +75,7 @@ Layout.articleVideoMobile = css`
 `;
 
 Layout.promoMobile = css`
+    ${gridBase};
     grid-template-areas:
         'tag1 content content content'
         'tag2 content content content';
@@ -126,6 +86,7 @@ Layout.promoMobile = css`
 `;
 
 Layout.promoDesktop = css`
+    ${gridBase};
     grid-template-areas: 'tag1 content content tag2';
     grid-template-columns: minmax(8%, 1fr) minmax(0, 100%) minmax(0, 100%) minmax(
             8%,
