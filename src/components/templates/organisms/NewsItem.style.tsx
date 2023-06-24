@@ -18,7 +18,9 @@ export const Layout: { [key in LayoutType]?: FlattenSimpleInterpolation } = {
 
 const gridBase = `
     display: grid;
-    grid-auto-rows: minmax(0, 1fr);
+    grid-auto-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     grid-auto-flow: dense;
     grid-row-gap: 0.25em;
     grid-column-gap: 0.25em`;
@@ -33,10 +35,10 @@ Layout.articleMobile = css`
 Layout.articleDesktop = css`
     ${gridBase};
     grid-template-areas: 'tag1 tag2 content content';
-    grid-template-columns: minmax(8%, 1fr) minmax(8%, 1fr) minmax(0, 100%) minmax(
-            0,
-            100%
-        );
+    //grid-template-columns: minmax(8%, 1fr) minmax(8%, 1fr) minmax(0, 100%) minmax(
+    //        0,
+    //        100%
+    //    );
 `;
 Layout.articleDesktopCompact = css`
     display: inline;
@@ -47,10 +49,10 @@ Layout.articleVideoDesktop = css`
     grid-template-areas:
         'thumbnail tag1 content content'
         'thumbnail tag2 content content';
-    grid-template-columns: minmax(8%, 1fr) minmax(8%, 1fr) minmax(0, 100%) minmax(
-            0,
-            100%
-        );
+    //grid-template-columns: minmax(8%, 1fr) minmax(8%, 1fr) minmax(0, 100%) minmax(
+    //        0,
+    //        100%
+    //    );
 `;
 
 Layout.promoMobile = css`

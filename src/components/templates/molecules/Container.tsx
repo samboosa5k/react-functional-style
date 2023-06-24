@@ -15,18 +15,24 @@ const StyledContainer = styled.div<StyledContainerProps>(
         return css`
             position: relative;
             height: auto;
-            box-sizing: border-box;
-            font: 1rem/1.5 'Noto Sans KR', sans-serif;
-            color: #333;
-            background-color: #fff;
-            border: 1px solid #c0a680;
-            border-radius: 0.5rem;
-            box-shadow: 0 0 0.5rem 0.25rem rgba(0, 0, 0, 0.1);
+            // soft material box shadow
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid #ccc;
 
             ${templateAreas};
+
+            margin-bottom: var(--row-padding);
         `;
     }
 );
+
+export const StyledInnerContainer = styled.div`
+    position: relative;
+    height: auto;
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
+    border: 1px solid #ccc;
+`;
 export const Container = ({
     templateAreas,
     className,

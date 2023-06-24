@@ -16,10 +16,11 @@ export const Thumbnail = styled((props: Partial<StyledBlockProps>) => (
     object-fit: scale-down;
     overflow: hidden;
 
+    grid-column: 1 / span 2;
+
     img {
-        top: 50%;
-        width: 100%;
-        height: auto;
-        margin: auto;
+        min-height: 100%;
+        min-width: 100%;
+        object-fit: cover;
     }
 `;

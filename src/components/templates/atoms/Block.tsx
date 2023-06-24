@@ -15,12 +15,10 @@ export const Block = styled.div<StyledBlockProps>(
         display: ${display};
         grid-area: ${gridArea};
 
-        padding: 0.5rem;
         border: 1px dashed #c0a680;
-        border-radius: 0.5rem;
+        border-radius: var(--border-radius-sm);
 
         text-anchor: middle;
-        text-align: center;
         vertical-align: middle;
     `
 );
