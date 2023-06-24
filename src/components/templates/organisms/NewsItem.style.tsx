@@ -1,30 +1,21 @@
-import { ReactNode } from 'react';
+import { css, FlattenSimpleInterpolation } from 'styled-components';
 
-import styled, { css, FlattenSimpleInterpolation } from 'styled-components';
-
-export interface StyledContainerProps {
-    templateAreas: FlattenSimpleInterpolation;
-    className?: string;
-    children?: ReactNode;
+export enum LayoutType {
+    articleMobile = 'articleMobile',
+    articleDesktop = 'articleDesktop',
+    articleDesktopCompact = 'articleDesktopCompact',
+    articleVideoDesktop = 'articleVideoDesktop',
+    promoMobile = 'promoMobile',
 }
 
-export const Container = styled.div<StyledContainerProps>(
-    ({ templateAreas }) => {
-        return css`
-            position: relative;
-            height: auto;
-            box-sizing: border-box;
-            font: 1rem/1.5 'Noto Sans KR', sans-serif;
-            color: #333;
-            background-color: #fff;
-            border: 1px solid #c0a680;
-            border-radius: 0.5rem;
-            box-shadow: 0 0 0.5rem 0.25rem rgba(0, 0, 0, 0.1);
+export const Layout: { [key in LayoutType]?: FlattenSimpleInterpolation } = {
+    articleMobile: undefined,
+    articleDesktop: undefined,
+    articleDesktopCompact: undefined,
+    articleVideoDesktop: undefined,
+    promoMobile: undefined,
+};
 
-            ${templateAreas};
-        `;
-    }
-);
 const gridBase = `
     display: grid;
     grid-auto-rows: minmax(0, 1fr);
@@ -32,7 +23,6 @@ const gridBase = `
     grid-row-gap: 0.25em;
     grid-column-gap: 0.25em`;
 
-export const Layout: { [key: string]: FlattenSimpleInterpolation } = {};
 Layout.articleMobile = css`
   ${gridBase};
 'tag1 content content content' 'tag2 content content content';
@@ -63,17 +53,6 @@ Layout.articleVideoDesktop = css`
         );
 `;
 
-Layout.articleVideoMobile = css`
-    ${gridBase};
-    grid-template-areas:
-        'thumbnail content content tag1'
-        'thumbnail content content tag2';
-    grid-template-columns: minmax(8%, 1fr) minmax(0, 100%) minmax(0, 100%) minmax(
-            8%,
-            1fr
-        );
-`;
-
 Layout.promoMobile = css`
     ${gridBase};
     grid-template-areas:
@@ -82,14 +61,5 @@ Layout.promoMobile = css`
     grid-template-columns: minmax(8%, 1fr) minmax(8%, 1fr) minmax(0, 100%) minmax(
             0,
             100%
-        );
-`;
-
-Layout.promoDesktop = css`
-    ${gridBase};
-    grid-template-areas: 'tag1 content content tag2';
-    grid-template-columns: minmax(8%, 1fr) minmax(0, 100%) minmax(0, 100%) minmax(
-            8%,
-            1fr
         );
 `;

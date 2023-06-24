@@ -1,2 +1,2 @@
 export * from './NewsItem';
-export * from './NewsItem.style';
+export type { StyledContainerProps } from './NewsItem.style';
