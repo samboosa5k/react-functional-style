@@ -1,6 +1,6 @@
 import {memo} from 'react';
 
-import ArticleList from './NewsListData.json';
+import ArticleList from './NewsFeedData.json';
 
 // Data structure
 const articleInsertData = {
@@ -62,6 +62,6 @@ const articleInsert = ([props, index]: ArticleInsertProps): JSX.Element => {
         </li>
     );
 };
-export const NewsList = () => <>{<NewsArticleMap data={articleData}/>}</>;
+export const NewsFeed = () => <>{<NewsArticleMap data={articleData}/>}</>;
 
-NewsList.displayName = 'NewsList';
+NewsFeed.displayName = 'NewsFeed';

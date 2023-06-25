@@ -1,14 +1,7 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const NewsListContainer = styled.ul`
-    --container-padding: 1rem;
-    --row-padding: 0.5em;
-    --inner-padding: 0.25em;
-
-    // material border-radius
-    --border-radius: 4px;
-    --border-radius-sm: 2px;
-
+// Future globals
+const listColors = css`
     --secondColor: rgb(253, 159, 36);
     --thirdColor: rgb(0, 142, 255);
     --fourthColor: rgb(254, 86, 33);
@@ -22,6 +15,22 @@ export const NewsListContainer = styled.ul`
     --lighterTextColor: rgb(163, 163, 165);
     --invertedTextColor: rgb(254, 254, 254);
     --linkColor: rgb(0, 142, 255);
+`;
+
+const baseListStyle = css`
+    --container-padding: 1rem;
+    --row-padding: 0.5em;
+    --inner-padding: 0.25em;
+
+    // material border-radius
+    --border-radius: 4px;
+    --border-radius-sm: 2px;
+`;
+
+// Container stlye
+export const Container = styled.ul`
+    ${baseListStyle};
+    ${listColors};
 
     display: block;
     position: relative;

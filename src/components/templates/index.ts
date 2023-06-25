@@ -1,4 +1,4 @@
-export * from './NewsList';
+export * from './NewsFeed';
 export * from './molecules';
 export * from './organisms';
 export * from './helpers';

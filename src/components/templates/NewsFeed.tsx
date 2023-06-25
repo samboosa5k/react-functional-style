@@ -1,19 +1,22 @@
 import { memo, useEffect, useState } from 'react';
 
 import { groupNewsByDate, newsData, NewsDataItem } from './helpers';
-import { NewsListContainer } from './NewsList.style';
+
 import { NewsItem } from './organisms';
 import { Layout } from './organisms/NewsItem.style';
+import { Container } from './NewsFeed.style';
 
-const NewsListMap = memo(({ data }: any) => (
+const ArticleList = memo(({ group, data }: any) => (
     <>
         {data.map((item: NewsDataItem, i: number) => {
             return (
                 <>
+                    <h2 className="article-list__heading">{group}</h2>
                     <NewsItem
-                        templateAreas={Layout.articleVideoDesktop}
-                        className="news-item"
+                        template={Layout.newMedia}
+                        className="article article-media"
                         config={{
+                            title: item.newsTitle,
                             content: item.newsTitle,
                             thumbnail: item.imageUrl,
                             category: item.category.newsCatName,
@@ -26,21 +29,23 @@ const NewsListMap = memo(({ data }: any) => (
     </>
 ));
 
+ArticleList.displayName = 'ArticleList';
+
 // const groupedNews = groupNewsByDate(newsData.data);
-export const NewsList = () => {
+export const NewsFeed = () => {
     const [newsByHour] = useState(groupNewsByDate(newsData.data));
     useEffect(() => {
         console.log(newsByHour);
     }, [newsByHour]);
 
     return (
-        <NewsListContainer>
+        <NewsFeed.Container>
             {newsByHour ? (
                 newsByHour.map(({ group, data }, i: number) => {
                     return (
                         <>
-                            <h2>{group}</h2>
-                            <NewsListMap
+
+                            <ArticleList
                                 group={group}
                                 data={data}
                                 key={`news-list-${i}`}
@@ -51,10 +56,11 @@ export const NewsList = () => {
             ) : (
                 <p>Loading...</p>
             )}
-        </NewsListContainer>
+        </NewsFeed.Container>
     );
 };
 
-export default NewsList;
-// NewsList.NewsItem = NewsItem;
-// NewsList.Parent = NewsList;
+NewsFeed.Container = Container;
+export default NewsFeed;
+// NewsFeed.NewsItem = NewsItem;
+// NewsFeed.Parent = NewsFeed;

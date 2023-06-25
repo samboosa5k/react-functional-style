@@ -1,2 +1,3 @@
-export { Block } from './Block';
-export type { StyledBlockProps } from './Block';
+export { Area } from './Area';
+export { Grid } from './Grid';
+export type { StyledBlockProps } from './Area';

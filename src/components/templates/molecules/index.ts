@@ -1,4 +1,3 @@
-export { Container } from './Container';
 export { Content } from './Content';
 export { Info } from './Info';
 export { Tag } from './Tag';

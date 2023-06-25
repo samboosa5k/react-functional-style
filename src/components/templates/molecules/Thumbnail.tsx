@@ -1,26 +1,13 @@
 import styled from 'styled-components';
 
-import { Block, StyledBlockProps } from '../atoms';
+import { StyledBlockProps } from '../atoms';
 
-export const Thumbnail = styled((props: Partial<StyledBlockProps>) => (
-    <Block
-        {...{
-            gridArea: 'thumbnail',
-            ...props,
-        }}
-    />
-))`
+const StyledImage = styled.img<Partial<StyledBlockProps>>`
     position: relative;
-    display: flex;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
     height: auto;
-    object-fit: scale-down;
-    overflow: hidden;
-
-    grid-column: 1 / span 2;
-
-    img {
-        min-height: 100%;
-        min-width: 100%;
-        object-fit: cover;
-    }
 `;
+
+export const Thumbnail = StyledImage;

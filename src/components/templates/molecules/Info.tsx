@@ -1,7 +1,7 @@
-import { Block, StyledBlockProps } from '../atoms';
+import { Area, StyledBlockProps } from '../atoms';
 
 export const Info = (props: Partial<StyledBlockProps>) => (
-    <Block
+    <Area
         {...{
             gridArea: 'info',
             ...props,
