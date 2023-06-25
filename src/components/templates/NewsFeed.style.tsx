@@ -28,15 +28,32 @@ const baseListStyle = css`
 `;
 
 // Container stlye
-export const Container = styled.ul`
+export const Container = styled.section`
     ${baseListStyle};
     ${listColors};
 
-    display: block;
-    position: relative;
-    color: #1a1a1f;
-    font-family: Lato, Helvetica, Arial, sans-serif;
-
-    margin: var(--container-padding);
+    box-sizing: border-box;
     padding: 0;
+    margin: 0;
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+
+    // Typography
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: Lato, Helvetica, Arial, sans-serif;
+    }
+
+    p,
+    span {
+    }
 `;

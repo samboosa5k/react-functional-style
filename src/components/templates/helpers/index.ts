@@ -25,11 +25,12 @@ const getDateGroup = (item: NewsDataItem) => {
     // const _MS_PER_DAY = 1000 * 60 * 60 * 24;
     // Discard the time and time-zone information.
     // const utc1 = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate());
-    // const utc2 = Date.UTC(
-    //     dateFromInput.getFullYear(),
-    //     dateFromInput.getMonth(),
-    //     dateFromInput.getDate()
-    // );
+    const [y, m, d] = [
+        dateFromInput.getFullYear(),
+        dateFromInput.getMonth(),
+        dateFromInput.getDate(),
+    ];
+    // const utc2 = Date.UTC(y, m, d);
     //
     // const diff = Math.abs(Math.floor((utc2 - utc1) / _MS_PER_DAY));
     //
@@ -43,8 +44,8 @@ const getDateGroup = (item: NewsDataItem) => {
     //     ? 'LONG_TIME'
     //     : 'UNKNOWN';
     //
-    // return hours
-    return `Hours:_${dateFromInput.getHours().toLocaleString()}`;
+    // return `${y}-${m}-${d}`;
+    return `${y}-${m}-${d}`;
 };
 
 const findIndex = (

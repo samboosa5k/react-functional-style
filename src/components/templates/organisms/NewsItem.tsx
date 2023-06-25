@@ -1,14 +1,12 @@
 import { ReactNode } from 'react';
 
-import { FlattenSimpleInterpolation } from 'styled-components';
+import styled from 'styled-components';
 
-import { Area, Grid } from '../atoms';
-import { Content, Info, Tag, Thumbnail } from '../molecules';
+import Cat from '../../../assets/cat.jpg';
+import { Heading, Tag } from '../atoms';
 
 export interface StyledContainerProps {
-    template: FlattenSimpleInterpolation;
     className?: string;
-
     children?: ReactNode;
 }
 
@@ -24,46 +22,83 @@ interface StyledNewsItemProps extends Omit<StyledContainerProps, 'children'> {
     };
 }
 
-export const NewsItem = ({
-    className,
-    config,
-}: StyledNewsItemProps | any): JSX.Element => {
-    return (
-        <Grid rows={2} columns={12} className={className}>
-            <Area display="flex" gridColumn="1 / span 2" gridRow="1 / span 2" className="item__thumbnail">
-                {config?.thumbnail && (
-                    <NewsItem.Thumbnail
-                        className="item__thumbnail"
-                        src="https://via.placeholder.com/300x200"
-                        alt="thumbnail" />
-                )}
-            </Area>
-            <Area gridArea="tags" gridColumn="3 / span 1" gridRow="1 / span 2" className="item__tag">
-                <NewsItem.Tag1 className="item__tag tag-1">
-                    Tag1
-                </NewsItem.Tag1>
-                <NewsItem.Tag2 className="item__tag tag-2">
-                    Tag2
-                </NewsItem.Tag2>
-            </Area>
-            <Area display="block" gridColumn="4 / span stretch" gridRow="1" className="item__content">
-                <h3>{config.title}</h3>
-            </Area>
-            <Area display="inline-flex" gridColumn="4 / span stretch" gridRow="2" className="item__content">
-                <NewsItem.Content className="item__content">
-                    {config.category}
-                    <NewsItem.Info className="item__info">INFO</NewsItem.Info>
-                </NewsItem.Content>
-            </Area>
+const Container = styled.div`
+    display: grid;
+    grid-gap: 0.5em;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    width: auto;
+    height: 6vh;
+    padding: 0.5em;
+    margin-bottom: 0.25em;
 
-        </Grid>
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.8) 50%,
+        rgba(255, 255, 255, 1) 100%
+    );
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+
+    .thumbnail-container {
+        display: flex;
+        position: relative;
+        object-fit: cover;
+
+        height: 100%;
+        overflow: hidden;
+
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+        border: 1px solid #dddfe2;
+
+        & > img {
+            display: none;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    & > .content-container {
+        display: inline;
+        flex-grow: 1;
+        flex-direction: column;
+        grid-column: 2 / span stretch;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    @media (min-width: 768px) {
+        height: 4em;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+
+    @media (min-width: 1280px) {
+        //
+    }
+`;
+
+export const NewsItem = ({ config }: StyledNewsItemProps): JSX.Element => {
+    return (
+        <Container className="item-container">
+            <div className={'thumbnail-container'}>
+                {/*@ts-ignore */}
+                <img src={Cat} />
+            </div>
+            <div className="content-container">
+                {config?.category && (
+                    <Tag
+                        text={config?.category || ''}
+                        className={'item__tag'}
+                    />
+                )}
+                {config?.title && (
+                    <Heading as={'span'} className={'item__heading'}>
+                        {config.title}
+                    </Heading>
+                )}
+            </div>
+        </Container>
     );
 };
-
-NewsItem.Container = Grid;
-NewsItem.Area = Area;
-NewsItem.Tag1 = Tag;
-NewsItem.Tag2 = Tag;
-NewsItem.Info = Info;
-NewsItem.Content = Content;
-NewsItem.Thumbnail = Thumbnail;

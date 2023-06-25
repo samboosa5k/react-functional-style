@@ -1,2 +1,3 @@
 export * from './NewsItem';
-export type { StyledContainerProps } from './NewsItem.style';
+export * from './NewsItem.style';
+export * from './NewsItem.stories';

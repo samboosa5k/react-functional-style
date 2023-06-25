@@ -1,19 +1,18 @@
 import { memo, useEffect, useState } from 'react';
 
+import styled from 'styled-components';
+
+import { Heading } from './atoms';
 import { groupNewsByDate, newsData, NewsDataItem } from './helpers';
-
-import { NewsItem } from './organisms';
-import { Layout } from './organisms/NewsItem.style';
 import { Container } from './NewsFeed.style';
+import { NewsItem } from './organisms';
 
-const ArticleList = memo(({ group, data }: any) => (
+const ArticleList = memo(({ data }: any) => (
     <>
         {data.map((item: NewsDataItem, i: number) => {
             return (
                 <>
-                    <h2 className="article-list__heading">{group}</h2>
                     <NewsItem
-                        template={Layout.newMedia}
                         className="article article-media"
                         config={{
                             title: item.newsTitle,
@@ -31,7 +30,9 @@ const ArticleList = memo(({ group, data }: any) => (
 
 ArticleList.displayName = 'ArticleList';
 
-// const groupedNews = groupNewsByDate(newsData.data);
+const NewsFeedHeading = styled(Heading)`
+    font-size: 1.5em;
+`;
 export const NewsFeed = () => {
     const [newsByHour] = useState(groupNewsByDate(newsData.data));
     useEffect(() => {
@@ -44,7 +45,11 @@ export const NewsFeed = () => {
                 newsByHour.map(({ group, data }, i: number) => {
                     return (
                         <>
-
+                            <NewsFeedHeading
+                                as={'h2'}
+                                className="feed__heading">
+                                {group}
+                            </NewsFeedHeading>
                             <ArticleList
                                 group={group}
                                 data={data}

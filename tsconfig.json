@@ -72,6 +72,7 @@
     "shared/**/*",
     "svgmodule.d.ts",
     "pngmodule.d.ts",
+    "jpgmodule.d.ts",
   ],
   "exclude": [
     "node_modules",
