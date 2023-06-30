@@ -90,7 +90,23 @@ interface StyledNewsItemProps extends Omit<StyledContainerProps, 'children'> {
 //  @ts-ignore
 export const NewsItem = ({ config }: StyledNewsItemProps): JSX.Element => {
     return (
-        <ArticleItem />
+        <ArticleItem>
+            <ArticleItem.SubItem col={1} row={1}>
+                {config?.category}
+            </ArticleItem.SubItem>
+
+            <ArticleItem.SubItem col={1} row={2}>
+                {config?.category}
+            </ArticleItem.SubItem>
+
+            <ArticleItem.MainItem
+                col={'2 / span stretch'}
+                row={'1 / span stretch'}>
+                <span>"bef"</span>
+                <h3>{config?.title}</h3>
+                <span>"after"</span>
+            </ArticleItem.MainItem>
+        </ArticleItem>
         // <Container className="item-container">
         //     <div className={'thumbnail-container'}>
         //         {/*@ts-ignore */}
