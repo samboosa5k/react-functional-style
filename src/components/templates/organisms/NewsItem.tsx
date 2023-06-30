@@ -91,20 +91,25 @@ interface StyledNewsItemProps extends Omit<StyledContainerProps, 'children'> {
 export const NewsItem = ({ config }: StyledNewsItemProps): JSX.Element => {
     return (
         <ArticleItem>
-            <ArticleItem.SubItem col={1} row={1}>
-                {config?.category}
+            <ArticleItem.SubItem col={1} row={1} as={'span'}>
+                <ArticleItem.InlineItem color="white" background={'#52a2da'}>
+                    {config?.category}
+                </ArticleItem.InlineItem>
             </ArticleItem.SubItem>
 
-            <ArticleItem.SubItem col={1} row={2}>
-                {config?.category}
+            <ArticleItem.SubItem col={1} row={2} as="span">
+                <ArticleItem.InlineItem color="white" background={'#da52a2'}>
+                    {config?.category}
+                </ArticleItem.InlineItem>
             </ArticleItem.SubItem>
 
-            <ArticleItem.MainItem
-                col={'2 / span stretch'}
-                row={'1 / span stretch'}>
-                <span>"bef"</span>
-                <h3>{config?.title}</h3>
-                <span>"after"</span>
+            <ArticleItem.MainItem col={'2 / autofill'} row={'1 / autofill'}>
+                <ArticleItem.InlineItem color="white" background={'#a2da52'}>
+                    inlien
+                </ArticleItem.InlineItem>
+                <h3>
+                    {config?.title} <span>"after"</span>
+                </h3>
             </ArticleItem.MainItem>
         </ArticleItem>
         // <Container className="item-container">
