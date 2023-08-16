@@ -68,12 +68,17 @@ interface ListProps<T> {
     props: Array<T>;
 }
 
+// get display name of component
+const getDisplayName = (Comp: ComponentType<any>) => {
+    return Comp.displayName || Comp.name || 'Component';
+};
+
 // List component to accept component and component data
 const List = <T extends {}>({ Comp, props }: ListProps<T>) => (
     <>
-        {props.map((prop) => (
-            <Comp {...prop} />
-        ))}
+        {props.map((prop, i) => {
+            return <Comp key={`${getDisplayName(Comp)}-${i}`} {...prop} />;
+        })}
     </>
 );
 
