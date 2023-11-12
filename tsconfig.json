@@ -73,6 +73,7 @@
     "svgmodule.d.ts",
     "pngmodule.d.ts",
     "jpgmodule.d.ts",
+    "src/molecules",
   ],
   "exclude": [
     "node_modules",
