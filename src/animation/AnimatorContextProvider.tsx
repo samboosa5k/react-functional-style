@@ -10,23 +10,23 @@ import {
 
 // import { X as AnimateWrapper } from '@/utils/namedJSX';
 
-export interface IAnimatorBroContext {
+export interface AnimatorContextType {
     parentRef?: HTMLDivElement | null;
     childRefs?: HTMLDivElement[] | [] | null;
     addToChildRefs?: (elem: HTMLDivElement) => void;
     getChildRefs?: () => HTMLDivElement[] | [] | undefined;
 }
 
-const AnimatorBroContext = createContext<IAnimatorBroContext>({});
+const AnimatorContext = createContext<AnimatorContextType>({});
 
-export const useAnimatorBroContext = () => useContext(AnimatorBroContext);
+export const useAnimatorContext = () => useContext(AnimatorContext);
 
-export const AnimatorBroProvider: FC<{ children: ReactNode }> = ({
+export const AnimatorContextProvider: FC<{ children: ReactNode }> = ({
     // animationCallback,
     children,
 }) => {
-    const parentRef = useRef<IAnimatorBroContext['parentRef']>(undefined);
-    const childRefs = useRef<IAnimatorBroContext['childRefs']>([]);
+    const parentRef = useRef<AnimatorContextType['parentRef']>(undefined);
+    const childRefs = useRef<AnimatorContextType['childRefs']>([]);
 
     const addToChildRefs = useCallback(
         (elem: HTMLDivElement) =>
@@ -39,7 +39,7 @@ export const AnimatorBroProvider: FC<{ children: ReactNode }> = ({
     const getChildRefs = useCallback(() => childRefs?.current || [], []);
 
     return (
-        <AnimatorBroContext.Provider
+        <AnimatorContext.Provider
             value={{
                 parentRef: parentRef?.current,
                 childRefs: childRefs?.current,
@@ -47,6 +47,6 @@ export const AnimatorBroProvider: FC<{ children: ReactNode }> = ({
                 getChildRefs,
             }}>
             {children}
-        </AnimatorBroContext.Provider>
+        </AnimatorContext.Provider>
     );
 };

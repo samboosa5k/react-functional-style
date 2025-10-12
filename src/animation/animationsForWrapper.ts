@@ -5,8 +5,6 @@ export const staggerRefs = () => {
         stagger: {
             each: 0.1,
             from: 0,
-            // repeat: -1,
-            // yoyo: true,
         },
     };
 };

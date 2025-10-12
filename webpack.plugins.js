@@ -17,4 +17,7 @@ module.exports = [
     filename: '[name].[chunkhash].css',
     chunkFilename: '[name].[chunkhash].chunk.css',
   }),
+  new webpack.DefinePlugin({
+    'process.env.APP': JSON.stringify(process.env.APP || ''),
+  }),
 ].filter(Boolean);

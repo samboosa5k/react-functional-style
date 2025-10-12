@@ -1,23 +1,14 @@
 const { createWebpackAliases } = require('./webpack.helpers');
 
-/**
- * Export Webpack Aliases
- *
- * Tip: Some text editors will show the errors or invalid intellisense reports
- * based on these webpack aliases, make sure to update `tsconfig.json` file also
- * to match the `paths` we using in here for aliases in project.
- */
 module.exports = createWebpackAliases({
     '@apps': 'apps',
-    '@assets': 'assets',
-    '@shared': 'shared',
-    '@shared/components': 'shared/components',
+    '@assets': 'src/assets',
+    '@/assets': 'src/assets',
     '@src': 'src',
-    '@/types': 'src/types',
-    '@/utils': 'src/utils',
-    '@/components': 'src/components',
-    '@/modules': 'src/modules',
-    '@/layout': 'src/layout',
-    '@/pages': 'src/pages',
-    '@/HOC': 'src/HOC',
+    '@/animation': 'src/animation',
+    '@/atoms': 'src/atoms',
+    '@/molecules': 'src/molecules',
+    '@/organisms': 'src/organisms',
+    '@/templates': 'src/templates',
+    '@/theme': 'src/theme',
 });

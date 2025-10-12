@@ -23,57 +23,26 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "outDir": "public",
-    "baseUrl": "../react-styuled-gsap",
+    "baseUrl": ".",
     "paths": {
-      "*": [
-        "./node_modules/*"
-      ],
-      "@/*": [
-        "./src/*"
-      ],
-      "@src/*": [
-        "./src/*"
-      ],
-      "@shared/*": [
-        "./shared/*"
-      ],
-      "@/HOC/*": [
-        "./src/HOC/*"
-      ],
-      "@/components/*": [
-        "./src/components/*"
-      ],
-      "@shared/components/*": [
-        "./shared/components/*"
-      ],
-      "@/layout/*": [
-        "./src/layout/*"
-      ],
-      "@/modules/*": [
-        "./src/modules/*"
-      ],
-      "@/pages/*": [
-        "./src/pages/*"
-      ],
-      "@/theme/*": [
-        "./src/theme/*"
-      ],
-      "@/types/*": [
-        "./src/types/*"
-      ],
-      "@/utils/*": [
-        "./src/utils/*"
-      ]
+      "@apps/*": ["apps/*"],
+      "@assets/*": ["src/assets/*"],
+      "@src/*": ["src/*"],
+      "@/animation/*": ["src/animation/*"],
+      "@/atoms/*": ["src/atoms/*"],
+      "@/molecules/*": ["src/molecules/*"],
+      "@/organisms/*": ["src/organisms/*"],
+      "@/templates/*": ["src/templates/*"],
+      "@/theme": ["src/theme"],
+      "@/theme/*": ["src/theme/*"]
     }
   },
   "include": [
     "src/**/*",
     "apps/**/*",
-    "shared/**/*",
     "svgmodule.d.ts",
     "pngmodule.d.ts",
-    "jpgmodule.d.ts",
-    "src/molecules",
+    "jpgmodule.d.ts"
   ],
   "exclude": [
     "node_modules",

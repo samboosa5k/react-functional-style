@@ -1,5 +1,5 @@
 {
-    "name": "react-styled-gsap",
+    "name": "react-functional-style",
     "version": "0.0.1",
     "description": "Original boilerplate @ https://github.com/codesbiome/react-webpack-typescript-2022",
     "license": "MIT",
@@ -9,7 +9,10 @@
         "serve": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js && cross-env serve public/",
         "lint": "eslint --ext .js,.jsx,.ts,.tsx src/",
         "storybook": "start-storybook -p 6006",
-        "build-storybook": "build-storybook"
+        "build-storybook": "build-storybook",
+        "app:animation1": "cross-env NODE_ENV=development APP=animation1 webpack serve --config webpack.config.dev.js",
+        "app:animation2": "cross-env NODE_ENV=development APP=animation2 webpack serve --config webpack.config.dev.js",
+        "app:animation3": "cross-env NODE_ENV=development APP=animation3 webpack serve --config webpack.config.dev.js"
     },
     "devDependencies": {
         "@babel/core": "^7.20.12",
