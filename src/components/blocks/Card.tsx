@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { Wrapper } from '@/components';
+import { Wrapper } from '../utility'
 
 type Props = { [key: string]: string };
 
