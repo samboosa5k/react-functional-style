@@ -11,7 +11,7 @@ export interface StyledContainerProps {
     children?: ReactNode;
 }
 
-interface StyledNewsItemProps extends Omit<StyledContainerProps, 'children'> {
+export interface StyledNewsItemProps extends Omit<StyledContainerProps, 'children'> {
     children?: ReactNode;
     config: {
         title: string;

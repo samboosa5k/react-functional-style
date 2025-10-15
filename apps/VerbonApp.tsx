@@ -1,4 +1,4 @@
-import { ClickPhoto, Photo } from '@shared/components/Photo';
+import { ClickPhoto, Photo } from '../shared/components/Photo';
 
 import { useState } from 'react';
 

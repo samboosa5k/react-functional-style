@@ -1,13 +1,13 @@
-import { ComponentMeta, Story } from '@storybook/react';
+import { ComponentMeta } from '@storybook/react';
 
-import { NewsItem, NewsItemProps } from './NewsItem';
+import { NewsItem, type StyledNewsItemProps } from './NewsItem';
 
 export default {
     title: 'Templates/Organisms/NewsItem',
     component: NewsItem,
 } as ComponentMeta<typeof NewsItem>;
 
-export const Default = (args: NewsItemProps) => <NewsItem {...args} />;
+export const Default = (args: StyledNewsItemProps) => <NewsItem {...args} />;
 Default.args = {
     newsID: 85124,
     domainID: 101,
@@ -32,5 +32,5 @@ Default.args = {
         'https://gp.cdn.pxr.nl/news/2021/05/26/{size}_ad40c6cb4c0a749df302725e330ea969d9076fde.jpg',
 };
 
-const Primary = (args) => <NewsItem {...args} />;
+const Primary = (args: StyledNewsItemProps) => <NewsItem {...args} />;
 Primary.args = Default.args;
